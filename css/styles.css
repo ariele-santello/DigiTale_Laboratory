@@ -3029,7 +3029,7 @@ textarea.form-control-lg {
   background-color: #0047b3;
   border-color: #0047b3;
 }
-.btn-primary:hover { 
+.btn-primary:hover {
   color: #fff;
   background-color:#003d99;
   border-color: #003d99;
@@ -7705,7 +7705,7 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: #ffbf00 ;
 }
 
 .text-secondary {
