@@ -3029,7 +3029,7 @@ textarea.form-control-lg {
   background-color: #0047b3;
   border-color: #0047b3;
 }
-.btn-primary:hover {
+.btn-primary:hover { /* MODIFICA ANCHE QUI COLORE  */
   color: #fff;
   background-color: #cf5331;
   border-color: #c34e2e;
@@ -7796,12 +7796,12 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  background-color:  #ffbf00; /*rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;*/
 }
 
 .bg-secondary {
   --bs-bg-opacity: 1;
-  background-color: #ffbf00 !important; /*rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) */
+  background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-success {
