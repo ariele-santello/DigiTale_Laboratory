@@ -122,14 +122,11 @@
                     scene.add(object);
 
 
-                const loader = new THREE.TextureLoader();
+                    const loader = new THREE.TextureLoader();
 
-                const material = new THREE.MeshBasicMaterial({
-                map:
-                objLoader.setPath('assets/');
-                loader.load("Fiabe3D.jpg"),
-
-               		  });
+                    const material = new THREE.MeshBasicMaterial({
+                  	map: loader.load("assets/Fiabe3D.png"),
+                		});
 
                 });
 
