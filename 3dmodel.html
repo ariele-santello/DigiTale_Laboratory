@@ -125,11 +125,21 @@
 
             });
 
+            // instantiate a loader
+            		const text = new THREE.TextureLoader();
 
-            texture = new THREE.TextureLoader().load( 'assets/Fiabe3D.jpg' );
+            		// load a resource
+            		text.load(
+            			// resource URL
+            			'assets/Fiabe3D.jpg',
 
-// immediately use the texture for material creation
-            material = new THREE.MeshBasicMaterial( { map: texture } );
+            			// onLoad callback
+            			function ( texture ) {
+            				// in this example we create the material when the texture is loaded
+            				const material = new THREE.MeshBasicMaterial( {
+            					map: texture
+            				 } );
+            			},
 
             /* Renderer */
 
