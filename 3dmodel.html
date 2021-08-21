@@ -122,7 +122,13 @@
                     scene.add(object);
 
 
-                  var texture = new THREE.TextureLoader().load( 'Fiabe3D.jpg' );
+                  var texture = new THREE.TextureLoader().load( 'assets/Fiabe3D.jpg' );
+
+				var geometry = new THREE.BoxBufferGeometry( 200, 200, 200 );
+				var material = new THREE.MeshBasicMaterial( { map: texture } );
+
+				mesh = new THREE.Mesh( geometry, material );
+				scene.add( mesh );
 
                 });
 
