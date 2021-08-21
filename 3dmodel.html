@@ -126,13 +126,8 @@
 
             	       textureloader = new THREE.TextureLoader();
             	       textureloader.load('assets/Fiabe3D.jpg',function(tx){
-            	        material = new THREE.MeshBasicMaterial({
-                	        map: tx,
-               	        wireframe: false
-                  	  });
-            			var sphere = new THREE.Mesh( geometry, material  );
-            		         sphere.scale.x = 0;
-            			scene.add( sphere );
+                       scene.add(tx);
+            	     
             		 });
 
                 });
