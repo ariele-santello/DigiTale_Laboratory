@@ -121,13 +121,15 @@
 
                     scene.add(object);
 
-                const loader = new THREE.TextureLoader();
-                const materials = [
-                  new THREE.MeshBasicMaterial({map: loader.load('assets/Fiabe3D.jpg')}),
-                  ];
-                const cube = new THREE.Mesh(geometry, materials);
-                scene.add(cube);
-                });
+                    const loader = new THREE.TextureLoader();
+                    loader.load('assets/Fiabe3D.jpg', (texture) => {
+                      const material = new THREE.MeshBasicMaterial({
+                        map: texture,
+                      });
+                      const cube = new THREE.Mesh(geometry, material);
+                      scene.add(cube);
+                      cubes.push(cube);  // add to our list of cubes to rotate
+                    });
 
 
                 /*    var geometry = new THREE.SphereBufferGeometry( 10, 8, 8 );
