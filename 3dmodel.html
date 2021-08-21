@@ -125,6 +125,12 @@
 
             });
 
+
+            texture = new THREE.TextureLoader().load( 'assets/Fiabe3D.jpg' );
+
+// immediately use the texture for material creation
+            material = new THREE.MeshBasicMaterial( { map: texture } );
+
             /* Renderer */
 
             renderer = new THREE.WebGLRenderer();
