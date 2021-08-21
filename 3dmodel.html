@@ -19,16 +19,17 @@
         <link href="css/styles.css" rel="stylesheet" />
         <!--Imports a model-viewer JavaScript code -->
         <!--It helps to handle how the 3D Object would be displayed -->
+        <script src="js/three.js"></script>
+        <script src="js/Detector.js"></script>
+        <script src="js/OrbitControls.js"></script>
+        <script src="js/OBJLoader.js"></script>
+        <script src="js/MTLLoader.js"></script>
+        <script src="js/three.min.js"></script>
 
     </head>
     <body>
-      <script src="three.min.js"></script>
-      <script src="OBJLoader.js"></script>
-      <script src="OrbitControls.js"></script>
-      <script src="dist/bundle.js"></script>
 
       <script>
-        import * as THREE from 'Three';
         let scene, camera, renderer;
         function init() {
           scene = new THREE.Scene();
