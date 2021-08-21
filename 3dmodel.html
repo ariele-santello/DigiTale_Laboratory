@@ -1,176 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>3D Object</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <!--Imports a model-viewer JavaScript code -->
-        <!--It helps to handle how the 3D Object would be displayed -->
-        <script src="js/three.js"></script>
-        <script src="js/Detector.js"></script>
-        <script src="js/OrbitControls.js"></script>
-        <script src="js/OBJLoader.js"></script>
-        <script src="js/MTLLoader.js"></script>
-        <script src="js/three.min.js"></script>
+<html>
+<head>
 
-    </head>
-    <body>
+    <title>WebGL 3D Model Viewer Using three.js</title>
 
-      <a class="right" href="https://github.com/Lorti/webgl-3d-model-viewer-using-three.js" target="_top">
-          <img src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67">
-      </a>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="three.js"></script>
+    <script src="Detector.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="OBJLoader.js"></script>
+    <script src="MTLLoader.js"></script>
 
-      <script>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background: hsl(0, 0%, 10%);
+        }
 
-          if (!Detector.webgl) {
-              Detector.addGetWebGLMessage();
-          }
+        p {
+            margin: 0;
+            padding: 0;
+        }
 
-          var container;
+        .left,
+        .right {
+            position: absolute;
+            color: #fff;
+            font-family: Geneva, sans-serif;
+        }
 
-          var camera, controls, scene, renderer;
-          var lighting, ambient, keyLight, fillLight, backLight;
+        .left {
+            bottom: 1em;
+            left: 1em;
+            text-align: left;
+        }
 
-          init();
-          animate();
+        .right {
+            top: 0;
+            right: 0;
+            text-align: right;
+        }
 
-          function init() {
+        a {
+            color: #f58231;
+        }
+    </style>
 
-              container = document.createElement('div');
-              document.body.appendChild(container);
+</head>
+<body>
 
-              /* Camera */
+    <div class="left">
+        <p>Low-Poly Croupière<p>
+        <p><a href="https://manu.ninja/" target="_top">manu.ninja</a></p>
+    </div>
 
-              camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-              camera.position.z = 3;
+    <a class="right" href="https://github.com/Lorti/webgl-3d-model-viewer-using-three.js" target="_top">
+        <img src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67">
+    </a>
 
-              /* Scene */
+    <script>
 
-              scene = new THREE.Scene();
-              lighting = false;
+        if (!Detector.webgl) {
+            Detector.addGetWebGLMessage();
+        }
 
-              ambient = new THREE.AmbientLight(0xffffff, 1.0);
-              scene.add(ambient);
+        var container;
 
-              keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
-              keyLight.position.set(-100, 0, 100);
+        var camera, controls, scene, renderer;
+        var lighting, ambient, keyLight, fillLight, backLight;
 
-              fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
-              fillLight.position.set(100, 0, 100);
+        init();
+        animate();
 
-              backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-              backLight.position.set(100, 0, -100).normalize();
+        function init() {
 
-              /* Model */
+            container = document.createElement('div');
+            document.body.appendChild(container);
 
-              var mtlLoader = new THREE.MTLLoader();
-              mtlLoader.setBaseUrl('assets/');
-              mtlLoader.setPath('assets/');
-              mtlLoader.load('scene.mtl', function (materials) {
+            /* Camera */
 
-                  materials.preload();
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 3;
 
+            /* Scene */
 
-                  var objLoader = new THREE.OBJLoader();
-                  objLoader.setMaterials(materials);
-                  objLoader.setPath('assets/');
-                  objLoader.load('sene.obj', function (object) {
+            scene = new THREE.Scene();
+            lighting = false;
 
-                      scene.add(object);
+            ambient = new THREE.AmbientLight(0xffffff, 1.0);
+            scene.add(ambient);
 
-                  });
+            keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
+            keyLight.position.set(-100, 0, 100);
 
-              });
+            fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
+            fillLight.position.set(100, 0, 100);
 
-              /* Renderer */
+            backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+            backLight.position.set(100, 0, -100).normalize();
 
-              renderer = new THREE.WebGLRenderer();
-              renderer.setPixelRatio(window.devicePixelRatio);
-              renderer.setSize(window.innerWidth, window.innerHeight);
-              renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
+            /* Model */
 
-              container.appendChild(renderer.domElement);
+            var mtlLoader = new THREE.MTLLoader();
+            mtlLoader.setBaseUrl('assets/');
+            mtlLoader.setPath('assets/');
+            mtlLoader.load('scene.mtl', function (materials) {
 
-              /* Controls */
+                materials.preload();
 
-              controls = new THREE.OrbitControls(camera, renderer.domElement);
-              controls.enableDamping = true;
-              controls.dampingFactor = 0.25;
-              controls.enableZoom = false;
+                materials.materials.default.map.magFilter = THREE.NearestFilter;
+                materials.materials.default.map.minFilter = THREE.LinearFilter;
 
-              /* Events */
+                var objLoader = new THREE.OBJLoader();
+                objLoader.setMaterials(materials);
+                objLoader.setPath('assets/');
+                objLoader.load('scene.obj', function (object) {
 
-              window.addEventListener('resize', onWindowResize, false);
-              window.addEventListener('keydown', onKeyboardEvent, false);
+                    scene.add(object);
 
-          }
+                });
 
-          function onWindowResize() {
+            });
 
-              camera.aspect = window.innerWidth / window.innerHeight;
-              camera.updateProjectionMatrix();
+            /* Renderer */
 
-              renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
 
-          }
+            container.appendChild(renderer.domElement);
 
-          function onKeyboardEvent(e) {
+            /* Controls */
 
-              if (e.code === 'KeyL') {
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.25;
+            controls.enableZoom = false;
 
-                  lighting = !lighting;
+            /* Events */
 
-                  if (lighting) {
+            window.addEventListener('resize', onWindowResize, false);
+            window.addEventListener('keydown', onKeyboardEvent, false);
 
-                      ambient.intensity = 0.25;
-                      scene.add(keyLight);
-                      scene.add(fillLight);
-                      scene.add(backLight);
+        }
 
-                  } else {
+        function onWindowResize() {
 
-                      ambient.intensity = 1.0;
-                      scene.remove(keyLight);
-                      scene.remove(fillLight);
-                      scene.remove(backLight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
 
-                  }
+            renderer.setSize(window.innerWidth, window.innerHeight);
 
-              }
+        }
 
-          }
+        function onKeyboardEvent(e) {
 
-          function animate() {
+            if (e.code === 'KeyL') {
 
-              requestAnimationFrame(animate);
+                lighting = !lighting;
 
-              controls.update();
+                if (lighting) {
 
-              render();
+                    ambient.intensity = 0.25;
+                    scene.add(keyLight);
+                    scene.add(fillLight);
+                    scene.add(backLight);
 
-          }
+                } else {
 
-          function render() {
+                    ambient.intensity = 1.0;
+                    scene.remove(keyLight);
+                    scene.remove(fillLight);
+                    scene.remove(backLight);
 
-              renderer.render(scene, camera);
+                }
 
-          }
+            }
 
-      </script>
+        }
 
-    </body>
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            controls.update();
+
+            render();
+
+        }
+
+        function render() {
+
+            renderer.render(scene, camera);
+
+        }
+
+    </script>
+
+</body>
 </html>
