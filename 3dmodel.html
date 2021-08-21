@@ -121,8 +121,17 @@
 
                     scene.add(object);
 
+                    var geometry = new THREE.BufferGeometry();
+                    const vertices = new Float32Array( [
+                  	-1.0, -1.0,  1.0,
+                  	 1.0, -1.0,  1.0,
+                  	 1.0,  1.0,  1.0,
 
-                    var geometry = new THREE.SphereBufferGeometry( 20, 20, 20 );
+                  	 1.0,  1.0,  1.0,
+                  	-1.0,  1.0,  1.0,
+                  	-1.0, -1.0,  1.0
+                  ] );
+                  geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
 
             	       textureloader = new THREE.TextureLoader();
             	       textureloader.load('assets/Fiabe3D.jpg',function(tx){
