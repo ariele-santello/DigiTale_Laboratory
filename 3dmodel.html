@@ -122,7 +122,7 @@
                     scene.add(object);
 
 
-                    var geometry = new THREE.SphereBufferGeometry( 10, 15, 11 );
+                    var geometry = new THREE.SphereBufferGeometry( 1000, 80, 80 );
 
             	       textureloader = new THREE.TextureLoader();
             	       textureloader.load('assets/Fiabe3D.jpg',function(tx){
@@ -132,7 +132,7 @@
                	        wireframe: false
                   	  });
             			var sphere = new THREE.Mesh( geometry, material  );
-            		         sphere.scale.x = -0;
+            		         sphere.scale.x = -50;
             			scene.add( sphere );
             		 });
 
