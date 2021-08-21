@@ -108,7 +108,7 @@
             var mtlLoader = new THREE.MTLLoader();
             mtlLoader.setBaseUrl('assets/');
             mtlLoader.setPath('assets/');
-            mtlLoader.load('scene.mtl', function (materials) {
+            mtlLoader.load('Fiabe3D.mtl', function (materials) {
 
                 materials.preload();
 
@@ -117,7 +117,7 @@
                 var objLoader = new THREE.OBJLoader();
                 objLoader.setMaterials(materials);
                 objLoader.setPath('assets/');
-                objLoader.load('scene.obj', function (object) {
+                objLoader.load('Fiabe3D.obj', function (object) {
 
                     scene.add(object);
 
