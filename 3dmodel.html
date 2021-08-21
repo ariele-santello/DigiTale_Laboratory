@@ -122,13 +122,18 @@
                     scene.add(object);
 
 
-                  var texture = new THREE.TextureLoader().load( 'assets/Fiabe3D.jpg' );
+                    var geometry = new THREE.SphereBufferGeometry( 1000, 80, 80 );
 
-				var geometry = new THREE.BoxBufferGeometry( 200, 200, 200 );
-				var material = new THREE.MeshBasicMaterial( { map: texture } );
-
-				mesh = new THREE.Mesh( geometry, material );
-				scene.add( mesh );
+            	       textureloader = new THREE.TextureLoader();
+            	       textureloader.load('assets/Fiabe3D.jpg',function(tx){
+            	        material = new THREE.MeshBasicMaterial({
+                	        map: tx,
+               	        wireframe: false
+                  	  });
+            			var sphere = new THREE.Mesh( geometry, material  );
+            		         sphere.scale.x = -1;
+            			scene.add( sphere );
+            		 });
 
                 });
 
