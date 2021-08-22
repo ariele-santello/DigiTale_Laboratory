@@ -91,6 +91,7 @@ body {
 .iframe-container {
   overflow: hidden;
   padding-top: 56.25%; /* 16:9*/
+  padding-bottom: 10%;
   position: relative;
 }
 
@@ -712,8 +713,8 @@ progress {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
+/*  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5); */
   margin-top: var(--bs-gutter-y);
 }
 
