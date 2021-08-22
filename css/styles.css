@@ -11392,7 +11392,7 @@ hr.divider-light {
   .mainNav .navbar-brand:hover {
     color: #fff;
   }
-  .nav-item .nav-link {
+  .mainNav .nav-item .nav-link {
     color: #0047b3;
     padding: 0 1rem;
   }
