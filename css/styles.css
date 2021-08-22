@@ -11438,7 +11438,7 @@ hr.divider-light {
   font-size: 0.9rem;
   padding: 0.75rem 0;
 }
-#mainNav1 .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
+#mainNav1 .navbar-nav .nav-item .nav-link:hover, #mainNav1 .navbar-nav .nav-item .nav-link:active {
   color: #f4623a;
 }
 #mainNav1 .navbar-nav .nav-item .nav-link.active {
