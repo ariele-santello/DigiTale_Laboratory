@@ -105,6 +105,13 @@ body {
    width: 60%;
 }
 
+div#descr{
+  position: relative;
+    left: 65%;
+    bottom: 150%;
+}
+
+
 hr {
   margin: 1rem 0;
   color: inherit;
