@@ -90,9 +90,10 @@ body {
 
 .iframe-container {
   overflow: hidden;
-  padding-top: 56.25%;
-  padding-bottom: 10%;
+  margin-top: 5%;
+  padding-bottom: 70%;
   position: relative;
+  padding-right: 50%;
 }
 
 .iframe-container iframe {
