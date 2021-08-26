@@ -11,8 +11,6 @@ Start your local web server that is serving files from your “iiif-workshop” 
 Make sure to check the “Set CORS headers” box.
 <br>
 <br>
-<br>
-<br>
 ![alt text](https://github.com/ariele-santello/Digital_Dramas_Laboratory/blob/main/assets/img/web-server-for-chrome.png?raw=true)
 <br>
 Open http://localhost:3000 in a browser
