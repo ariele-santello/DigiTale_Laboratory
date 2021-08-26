@@ -10,6 +10,7 @@ Create a directory called "iif-workshop".
 Start your local web server that is serving files from your “iiif-workshop” directory.
 Make sure to check the “Set CORS headers” box.
 ![alt text](https://github.com/ariele-santello/Digital_Dramas_Laboratory/blob/main/assets/img/web-server-for-chrome.png?raw=true)
+<br>
 Open http://localhost:3000 in a browser
 Download the manifest.json file inside this Github repository and put it in your “iiif-workshop” directory.
 Now you should have a directory with a "manifest.json" file inside.
