@@ -1,6 +1,7 @@
 # Digital_Dramas_Laboratory
 
 If you have problems with the Universal Viewer, follow these instructions or go to: http://ronallo.com/iiif-workshop-new/preparation.html and follow the istructions.
+<br>
 You will need:
 - a local web server (Web Server for Chrome, etc.)
 - a network connection
