@@ -8,6 +8,7 @@ You will need:
 
 Create a directory called "iif-workshop".
 Start your local web server that is serving files from your “iiif-workshop” directory.
+<br>
 Make sure to check the “Set CORS headers” box.
 <br>
 <br>
