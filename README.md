@@ -7,5 +7,5 @@ You will need:
 - a network connection
 
 Create a directory 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/ariele-santello/Digital_Dramas_Laboratory/blob/main/assets/img/web-server-for-chrome.png?raw=true)
 
