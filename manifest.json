@@ -3,7 +3,7 @@
   "@type": "sc:Manifest",
   "@id": "http://localhost:3000/manifest.json",
   "label": "Illustration",
-  "description": "Illustration of Kay Rasmus Nielsen of the 'Hansel and Gretel' fairy tale.",
+  "description": "Illustration by Kay Rasmus Nielsen of the 'Hansel and Gretel' fairy tale.",
   "attribution": "Provided by Fabbri Editori. Images in Jacob and Wilhelm Grimm - Fiabe - Volume I are in copyright. This metadata is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License",
 
   "sequences": [
