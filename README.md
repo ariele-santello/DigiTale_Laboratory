@@ -1,4 +1,4 @@
-# Digital_Dramas_Laboratory
+# DigiTale_Laboratory
 
 If you have problems with the Universal Viewer, follow these instructions or go to: http://ronallo.com/iiif-workshop-new/preparation.html and follow the istructions.
 <br>
